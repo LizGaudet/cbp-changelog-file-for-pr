@@ -6,8 +6,8 @@ data:
   description: The CloudBees changelog lists every update to the platform.
   changelogs:
   - title: July 2025
-    anchor: '2025-07-15'
-    date: '2025-07-15'
+    anchor: '2025-07-01'
+    date: '2025-07-01'
     content: ''
     entries:
     - title: blah blah
@@ -16,7 +16,7 @@ data:
       - type: success
         text: feature enhancement
       content: "Attach one or more custom text labels to artifact versions \n"
-      version: '1.71'
+      version: '1.70'
     - title: more blah blah
       release: '1.70'
       badges:
@@ -24,9 +24,8 @@ data:
         text: New feature
       content: 'Coordinate the release of multiple components using the Application
         release model.
-
         '
-      version: '1.71'
+      version: '1.70'
     - title: even more blah blah
       release: '1.70'
       badges:
@@ -34,16 +33,15 @@ data:
         text: New feature
       content: 'Coordinate the release of multiple components using the Application
         release model.
-
         '
-      version: '1.71'
+      version: '1.70'
     - title: further blah blah
       release: '1.70'
       badges:
       - type: success
         text: feature enhancement
       content: "Attach one or more custom text labels to artifact versions \n"
-      version: '1.71'
+      version: '1.70'
   - title: May 2025
     anchor: '2025-05-09'
     date: '2025-05-09'
