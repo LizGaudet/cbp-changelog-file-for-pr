@@ -23,8 +23,7 @@ data:
       - type: success
         text: New feature
       content: 'Coordinate the release of multiple components using the Application
-        release model.
-        '
+        release model. '
       version: '1.70'
     - title: even more blah blah
       release: '1.70'
@@ -32,8 +31,7 @@ data:
       - type: success
         text: New feature
       content: 'Coordinate the release of multiple components using the Application
-        release model.
-        '
+        release model. '
       version: '1.70'
     - title: further blah blah
       release: '1.70'
@@ -65,6 +63,92 @@ data:
       - type: info
         text: Feature enhancement
       content: Attach one or more custom text.
+    - title: Added Bitbucket Data Center metrics to summary and activity pages
+      release: '1.57'
+      badges:
+      - type: success
+        text: New feature
+      content: 'View all Bitbucket Data Center metrics directly on the Component Summary
+        and Software Delivery activity pages for better visibility and tracking.
+
+        '
+      version: '1.57'
+    - title: Added CloudBees cloud-native platform REST API documentation
+      release: '1.57'
+      badges:
+      - type: success
+        text: New feature
+      content: 'We introduced new documentation pages for the CloudBees cloud-native
+        platform REST API. They explain how to integrate with platform data using
+        standard HTTP methods and JSON-formatted responses, including tasks like creating
+        and managing feature flags, target groups, and custom properties. Detailed
+        examples and parameter tables guide you through authentication, retrieving
+        resource IDs, and handling errors. You can automate workflows, build custom
+        integrations, and enhance your {PRODUCT} experience with these APIs. Refer
+        to the new documentation to get started.  xref:cloudbees-platform:api-references:index.adoc[API
+        introduction]
+
+        '
+      version: '1.57'
+    - title: Introduced reusable workflows
+      release: '1.57'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Revised:  Reuse workflows within other workflows to reduce duplication,
+        simplify maintenance, and promote best practices. Simply call a reusable workflow
+        to streamline automation. Original version:  We have introduced a mechanism
+        to reuse workflows, so that teams can avoid duplicating code, simplify maintainability
+        and to encourage best-practices, by simply calling reusable workflows from
+        their workflows.
+
+        '
+      version: '1.57'
+    - title: Ability to check if a change request you are creating conflicts with
+        an established ServiceNow blackout window
+      release: '1.57'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'We introduced the ability to check before a change request is created
+        in ServiceNow whether there is a blackout window. This  gives you the power
+        to decide if you want to proceed with creating a change request or not. This
+        is especially useful in creating ServiceNow automation use cases.
+
+        '
+      version: '1.57'
+    - title: Added validation to prevent deletion of in-use custom properties
+      release: '1.57'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Revised, shorter version:  Delete custom properties with built-in
+        checks to ensure safe removal. If a property is in use, deletion is disabled,
+        and the system alerts the user. The property must be removed from all flag
+        configurations before deletion can proceed. - You can now delete custom properties
+        directly, with built-in checks to ensure safe removal. Before a property is
+        deleted, the system verifies whether it is in use within any flag configurations.
+        If the property is in use, deletion is disabled, and the user is alerted.
+        The user must take the necessary actions before proceeding with deletion.
+        This enhancement ensures that property deletions are intentional, preventing
+        unintended impacts on configurations and streamlining the management of custom
+        properties.
+
+        '
+      version: '1.57'
+    - title: Improved deployment traceability and environment inventory
+      release: '1.57'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'It is now possible to track artifacts built and deployed. A new environment
+        inventory view shows the latest versions of artifacts in an environment with
+        links to the jobs responsible for the deployment and build.  The new artifact
+        deployment history view shows where a particular artifact version was deployed
+        and which version is currently active.
+
+        '
+      version: '1.57'
   - title: April 2025
     anchor: '2025-04-09'
     date: '2025-04-09'
