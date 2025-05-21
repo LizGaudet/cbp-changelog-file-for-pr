@@ -1,399 +1,520 @@
----
 template: ../templates/changelog.hbs
 schema: ../templates/changelog.cue
 tmp: true
 data:
-  title: "CloudBees changelog"
-  description: "The CloudBees changelog lists every update to the platform."
-
+  title: CloudBees changelog
+  description: The CloudBees changelog lists every update to the platform.
   changelogs:
-    - title: "May 2025"
-      anchor: "2025-05-09"
-      date: "2025-05-09"
-      content: ""
+  - title: May 2025
+    anchor: '2025-05-09'
+    date: '2025-05-09'
+    content: ''
+    entries:
+    - title: Add and filter artifact versions using custom labels
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Attach one or more custom text labels to artifact versions and filter
+        them based on those labels. This makes organizing, searching, and managing
+        artifact versions easier when viewing component details.
 
-      entries:
-        - title: Add and filter artifact versions using custom labels
-          release: "1.64"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Attach one or more custom text labels to artifact versions and filter them based on those labels. This makes organizing, searching, and managing artifact versions easier when viewing component details.
+        '
+      references:
+      - xref:cloudbees-platform:workflows:artifacts.adoc[Artifacts]
+    - title: Coordinate multiple component deployments with the application release
+        model
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Coordinate the release of multiple components using the application
+        release model. This model includes a manifest editor to specify the exact
+        artifact versions to be deployed with a pre-configured workflow.
 
-          references:
-            - "xref:cloudbees-platform:workflows:artifacts.adoc[Artifacts]"
+        '
+      references:
+      - xref:cloudbees-platform:applications:releases.adoc[Releases]
+    - title: Create multiple components in a single step
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Create multiple components at once, streamlining setup and saving
+        time. This enhancement removes the previous limitation of creating components
+        one at a time.
 
-        - title: Coordinate multiple component deployments with the application release model
-          release: "1.64"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Coordinate the release of multiple components using the application release model. This model includes a manifest editor to specify the exact artifact versions to be deployed with a pre-configured workflow.
+        '
+      references:
+      - xref:cloudbees-platform:organizations-components:manage-components.adoc#create[Manage
+        components]
+    - title: Applications now model how your software is built
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Applications are a new construct in the CloudBees platform that lets
+        you model how your software is built. Each application can connect to a source
+        code repository, components, and environments. Applications are required to
+        use features such as release orchestration, feature flag management, application
+        security posture management, and more.
 
-          references:
-            - "xref:cloudbees-platform:applications:releases.adoc[Releases]"
+        '
+      references:
+      - xref:cloudbees-platform:applications:applications.adoc[Applications]
+      - xref:cloudbees-platform:feature-management:learn-about-feature-flags.adoc[Learn
+        about feature management]
+    - title: Identify cleanup candidates with code references
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Use *Code references* to review where a feature flag appears in your
+        codebase. This helps you assess stale or inactive flags and decide whether
+        to clean them up, reducing technical debt.
 
-        - title: Create multiple components in a single step
-          release: "1.64"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Create multiple components at once, streamlining setup and saving time. This enhancement removes the previous limitation of creating components one at a time.
+        '
+      references:
+      - xref:cloudbees-platform:feature-management:code-references.adoc[Code references]
+    - title: Monitor platform health with the system status indicator
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Check the current health of the CloudBees platform services using
+        the new system status indicator in the UI. You can also view past incidents
+        and subscribe to real-time updates at "link:https://www.cloudbeesstatus.io/[cloudbees.io]".
 
-          references:
-            - "xref:cloudbees-platform:organizations-components:manage-components.adoc#create[Manage components]"
+        '
+      references:
+      - xref:cloudbees-platform:product-features:status-and-support.adoc[Platform
+        status and support links]
+    - title: Preview staged workflows to manage end-to-end releases
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: "Staged workflows\u2014now available for preview\u2014let you organize\
+        \ jobs into distinct phases for better control over end-to-end release processes.\
+        \ Staged workflows offer a visual composer for streamlined authoring and a\
+        \ runtime view that shows the current stage in execution. This preview feature\
+        \ will continue to evolve with new capabilities.\n"
+      references:
+      - xref:cloudbees-platform:workflows:manage-workflows.adoc[Manage workflows]
+      - link:https://docs.cloudbees.com/lexicon/cloudbees-platform/preview-feature[Preview
+        feature definition]
+    - title: Publish external scan results from GitHub Actions
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Integrate external security scanning tools such as Trivy, BlackDuck,
+        and Coverity into your GitHub Actions workflows. Scan results can be automatically
+        published to the CloudBees platform, enabling centralized visibility and policy
+        enforcement across your development pipeline.
 
-        - title: Applications now model how your software is built
-          release: "1.64"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Applications are a new construct in the CloudBees platform that lets you model how your software is built. Each application can connect to a source code repository, components, and environments. Applications are required to use features such as release orchestration, feature flag management, application security posture management, and more.
+        '
+      references:
+      - 'xref:cloudbees-platform:github-actions:gha-black-duck-scan-publish.adoc[GitHub
+        action: Black Duck scan and publish to the CloudBees platform]'
+      - 'xref:cloudbees-platform:github-actions:gha-trivy-scan-publish.adoc[GitHub
+        action: Trivy scan and publish to the CloudBees platform]'
+      - 'xref:cloudbees-platform:github-actions:gha-coverity-scan-publish.adoc[GitHub
+        action: Coverity scan and publish to the CloudBees platform]'
+    - title: Navigate the platform with enhanced clarity and control
+      release: '1.64'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'This update improves platform usability with refreshed navigation
+        elements designed for a more intuitive experience:
 
-          references:
-            - "xref:cloudbees-platform:applications:applications.adoc[Applications]"
-            - "xref:cloudbees-platform:feature-management:learn-about-feature-flags.adoc[Learn about feature management]"
 
-        - title: Identify cleanup candidates with code references
-          release: "1.64"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Use *Code references* to review where a feature flag appears in your codebase. This helps you assess stale or inactive flags and decide whether to clean them up, reducing technical debt.
+        - Redesigned sidebar layout and updated icons.
 
-          references:
-            - "xref:cloudbees-platform:feature-management:code-references.adoc[Code references]"
+        - Clearer distinction between tenant and organization settings.
 
-        - title: Monitor platform health with the system status indicator
-          release: "1.64"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Check the current health of the CloudBees platform services using the new system status indicator in the UI. You can also view past incidents and subscribe to real-time updates at "link:https://www.cloudbeesstatus.io/[cloudbees.io]".
+        - Improved breadcrumb switcher for better navigation context and visibility.
 
-          references:
-            - "xref:cloudbees-platform:product-features:status-and-support.adoc[Platform status and support links]"
+        '
+    - title: Add and filter artifact versions using custom labels
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Attach one or more custom text labels to artifact versions and filter
+        them based on those labels. This makes organizing, searching, and managing
+        artifact versions easier when viewing component details.
 
-        - title: Preview staged workflows to manage end-to-end releases
-          release: "1.64"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Staged workflows—now available for preview—let you organize jobs into distinct phases for better control over end-to-end release processes. Staged workflows offer a visual composer for streamlined authoring and a runtime view that shows the current stage in execution. This preview feature will continue to evolve with new capabilities.
+        '
+    - title: Coordinate multiple component deployments with Application release
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Coordinate the release of multiple components using the Application
+        release model.  This model includes a manifest editor to specify the exact
+        artifact versions to be deployed with a pre-configured workflow.
 
-          references:
-            - "xref:cloudbees-platform:workflows:manage-workflows.adoc[Manage workflows]"
-            - "link:https://docs.cloudbees.com/lexicon/cloudbees-platform/preview-feature[Preview feature definition]"
+        '
+    - title: Create multiple components in a single step
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Create multiple components at once, streamlining setup and saving
+        time. This enhancement removes the previous limitation of creating components
+        one at a time.
 
-        - title: Publish external scan results from GitHub Actions
-          release: "1.64"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Integrate external security scanning tools such as Trivy, BlackDuck, and Coverity into your GitHub Actions workflows. Scan results can be automatically published to the CloudBees platform, enabling centralized visibility and policy enforcement across your development pipeline.
+        '
+    - title: Publish external scan results from GitHub Actions
+      release: '1.64'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Integrate external security scanning tools like Trivy, BlackDuck,
+        and Coverity into your GitHub Actions workflows. Scan results can be automatically
+        published to the {PRODUCT}, enabling centralized visibility and policy enforcement
+        across your development pipeline.
 
-          references:
-            - "xref:cloudbees-platform:github-actions:gha-black-duck-scan-publish.adoc[GitHub action: Black Duck scan and publish to the CloudBees platform]"
-            - "xref:cloudbees-platform:github-actions:gha-trivy-scan-publish.adoc[GitHub action: Trivy scan and publish to the CloudBees platform]"
-            - "xref:cloudbees-platform:github-actions:gha-coverity-scan-publish.adoc[GitHub action: Coverity scan and publish to the CloudBees platform]"
+        '
+  - title: April 2025
+    anchor: '2025-04-25'
+    date: '2025-04-25'
+    content: ''
+    entries:
+    - title: Introduced support for Github Actions (GHA) workflows within the platform
+      release: '1.63'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Configure the {PRODUCT} to deeply integrate with GHA. Display GHA
+        workflows and runs in the platform UI, including test results, generated artifacts,
+        and evidence data. In addition, you can run a {PRODUCT} workflow from GHA.
+        Use your preferred CI tools seamlessly with the {PRODUCT} to increase software
+        development efficiency and performance.
 
-        - title: Navigate the platform with enhanced clarity and control
-          release: "1.64"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            This update improves platform usability with refreshed navigation elements designed for a more intuitive experience:
-            
-            - Redesigned sidebar layout and updated icons.
-            - Clearer distinction between tenant and organization settings.
-            - Improved breadcrumb switcher for better navigation context and visibility.
+        '
+    - title: Introduced the ability to run a {PRODUCT} workflow from GHA
+      release: '1.63'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Trigger a {PRODUCT} workflow from a GHA workflow run. This enables
+        you to orchestrate your software workflows between the {PRODUCT} and GHA.
+        This action is published in the GHA marketplace.
 
-    - title: "April 2025"
-      anchor: "2025-04-25"
-      date: "2025-04-25"
-      content: ""
+        '
+    - title: Introduced the ability to publish an evidence item from GHA
+      release: '1.63'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Capture job-level evidence data and publish it to the {PRODUCT}. This
+        action is published in the GHA marketplace.
 
-      entries:
-        - title: Introduced support for Github Actions (GHA) workflows within the platform
-          release: "1.63"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Configure the {PRODUCT} to deeply integrate with GHA. Display GHA workflows and runs in the platform UI, including test results, generated artifacts, and evidence data. In addition, you can run a {PRODUCT} workflow from GHA. Use your preferred CI tools seamlessly with the {PRODUCT} to increase software development efficiency and performance.
+        '
+    - title: Introduced the ability to publish test results to the {PRODUCT} from
+        GHA
+      release: '1.63'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Publish test results from JUnit, Tosca, ProdPerfect, and other tools
+        to the {PRODUCT} from GHA. This action is published in the GHA marketplace.
 
-        - title: Introduced the ability to run a {PRODUCT} workflow from GHA
-          release: "1.63"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Trigger a {PRODUCT} workflow from a GHA workflow run. This enables you to orchestrate your software workflows between the {PRODUCT} and GHA. This action is published in the GHA marketplace.
+        '
+    - title: Enhanced the action to register build artifacts from a GHA workflow
+      release: '1.63'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Informs the {PRODUCT} that an artifact version has been created, and
+        reports build artifact data generated by a GHA workflow run. The previous
+        version associated the given artifact to the component only, and not to the
+        workflow run.
 
-        - title: Introduced the ability to publish an evidence item from GHA
-          release: "1.63"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Capture job-level evidence data and publish it to the {PRODUCT}. This action is published in the GHA marketplace.
+        '
+  - title: March 2025
+    anchor: '2025-03-14'
+    date: '2025-03-14'
+    content: ''
+    entries:
+    - title: Added AWS ECR integration for private image use
+      release: '1.61'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Added support for integrating the {PRODUCT} with AWS Elastic Container
+        Registry (ECR). This integration allows you to use your own private container
+        images in workflows.
 
-        - title: Introduced the ability to publish test results to the {PRODUCT} from GHA
-          release: "1.63"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Publish test results from JUnit, Tosca, ProdPerfect, and other tools to the {PRODUCT} from GHA. This action is published in the GHA marketplace.
+        '
+    - title: Included Github Actions information in VSM dashboards
+      release: '1.61'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Enhanced the *Software delivery activity* dashboard to include workflows
+        and workflow runs from Github Actions (including enriching drill-down views).
 
-        - title: Enhanced the action to register build artifacts from a GHA workflow
-          release: "1.63"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Informs the {PRODUCT} that an artifact version has been created, and reports build artifact data generated by a GHA workflow run. The previous version associated the given artifact to the component only, and not to the workflow run.
+        '
+    - title: "Strengthened OIDC token security \u2014 action may be required"
+      release: '1.61'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: "Enhanced the security of the OIDC token implementation to better align\
+        \ with industry standards. As part of this update, the documentation is improved\
+        \ with clearer guidance, best practices, and examples for configuring trust\
+        \ policies.\n\nicon:exclamation-circle[role=\"text-red\"] **Action required**\
+        \ \n\nIf you're using OIDC tokens, **take the following steps to ensure continued\
+        \ functionality**:\n\n - Review the updated documentation for trust policy\
+        \ configuration details and examples.\n - Validate your current trust policies\
+        \ against the updated subject claim requirements.\n - Understand that this\
+        \ update **may not be backward compatible**, depending on how your policies\
+        \ are currently defined.\n - **Prepare now**: the rollout begins on **April\
+        \ 14, 2025**.\n - Update your configuration in advance to prevent any potential\
+        \ disruption.\n"
+      references:
+      - xref:cloudbees-platform:secure:oidc-setup.adoc[OIDC setup and usage]
+    - title: Notified users of a {PRODUCT} GitHub App permissions update request
+      release: 1.60.1
+      badges:
+      - type: success
+        text: New feature
+      content: "Users have been notified by email that a permission update for the\
+        \ installed {PRODUCT} GitHub App is necessary to support an upcoming feature\
+        \ that enables users to view GitHub Actions workflows and runs directly in\
+        \ the {PRODUCT}.\n \n - Users can select the link in the settings of their\
+        \ GitHub organization's installed {PRODUCT} GitHub App to review the request.\n\
+        \ - By approving the request to grant read-only access to GitHub Actions,\
+        \ users will be able to use the new feature as soon as it is released.\n"
+      references:
+      - xref:cloudbees-platform:integrations:scm-integration.adoc#permissions[GitHub
+        App permission change requests]
+    - title: Enabled hybrid plugin support for security tools
+      release: '1.60'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Enhance CloudBees core plugins for seamless integration with the {PRODUCT}
+        implicit security orchestration workflow. These updates allow hybrid plugins
+        to function both as plugins and as actions within {PRODUCT}. The following
+        security tools are now available as hybrid plugins: Gosec, Trivy, Gitleaks,
+        Grype, SonarQube, Blackduck, and Coverity.
 
-    - title: "March 2025"
-      anchor: "2025-03-14"
-      date: "2025-03-14"
-      content: ""
+        '
+    - title: Introduced component environment inventory view
+      release: '1.60'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Gain visibility into where your component''s artifacts are deployed
+        with the new component environment inventory view. This feature allows users
+        to see which environments a particular component''s artifacts are deployed
+        to, improving traceability and deployment insights.
 
-      entries:
-        - title: Added AWS ECR integration for private image use
-          release: "1.61"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Added support for integrating the {PRODUCT} with AWS Elastic Container Registry (ECR). This integration allows you to use your own private container images in workflows.
+        '
+    - title: Enhanced platform navigation and contextual awareness
+      release: '1.60'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: "Improved the user experience with significant updates to navigation\
+        \ and contextual awareness, including:\n\n - A newly designed sidebar navigation\
+        \ with icons.\n - The ability to collapse navigation into an icon-only view.\n\
+        \ - The removed sidebar navigation submenu items.\n - New tabbed navigation\
+        \ within the context of a page (replaces sidebar navigation submenu items).\n\
+        \ - The ability to navigate organizations and components using breadcrumbs.\n"
+    - title: Updated feature management entity inheritance behavior
+      release: '1.60'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Maintain independent configurations in feature management. Previously,
+        any feature management entity created in a parent organization was automatically
+        inherited by sub-organizations. With this enhancement, inheritance has been
+        removed, and feature management entities created in a parent organization
+        are no longer available in a sub-organization.
 
-        - title: Included Github Actions information in VSM dashboards
-          release: "1.61"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Enhanced the *Software delivery activity* dashboard to include workflows and workflow runs from Github Actions (including enriching drill-down views).
+        '
+  - title: February 2025
+    anchor: '2025-02-14'
+    date: '2025-02-14'
+    content: ''
+    entries:
+    - title: Introduced action to register build artifacts from a GitHub Actions workflow
+      release: '1.59'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Use this new action to instrument a GitHub Actions workflow and register
+        a build artifact to {PRODUCT}, enabling a workflow to deploy and track the
+        artifact version in the environment inventory.
 
-        - title: Strengthened OIDC token security — action may be required
-          release: "1.61"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Enhanced the security of the OIDC token implementation to better align with industry standards. As part of this update, the documentation is improved with clearer guidance, best practices, and examples for configuring trust policies.
-            
-            icon:exclamation-circle[role="text-red"] **Action required** 
-            
-            If you're using OIDC tokens, **take the following steps to ensure continued functionality**:
+        '
+    - title: Can now view component environment inventory
+      release: '1.59'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Visualize the deployed environments from a component''s artifacts
+        with the new component environment inventory view.
 
-             - Review the updated documentation for trust policy configuration details and examples.
-             - Validate your current trust policies against the updated subject claim requirements.
-             - Understand that this update **may not be backward compatible**, depending on how your policies are currently defined.
-             - **Prepare now**: the rollout begins on **April 14, 2025**.
-             - Update your configuration in advance to prevent any potential disruption.
+        '
+    - title: Provided input parameters for manual approval jobs
+      release: '1.59'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Provide input parameters as part of a manual approval, making the
+        values available for use in subsequent workflow jobs.
 
-          references:
-            - xref:cloudbees-platform:secure:oidc-setup.adoc[OIDC setup and usage]
+        '
+    - title: Enhanced artifact feature with delete artifact versions
+      release: '1.58'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Delete registered artifact versions from the component artifact list
+        view.
 
-        - title: Notified users of a {PRODUCT} GitHub App permissions update request
-          release: "1.60.1"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Users have been notified by email that a permission update for the installed {PRODUCT} GitHub App is necessary to support an upcoming feature that enables users to view GitHub Actions workflows and runs directly in the {PRODUCT}.
-             
-             - Users can select the link in the settings of their GitHub organization's installed {PRODUCT} GitHub App to review the request.
-             - By approving the request to grant read-only access to GitHub Actions, users will be able to use the new feature as soon as it is released.
+        '
+  - title: January 2025
+    anchor: '2025-01-20'
+    date: '2025-01-20'
+    content: ''
+    entries:
+    - title: Added Bitbucket Data Center metrics
+      release: '1.57'
+      badges:
+      - type: success
+        text: New feature
+      content: 'View all Bitbucket Data Center metrics directly on the *Component
+        summary* and *Software delivery activity* dashboards for better visibility
+        and tracking.
 
-          references:
-            - xref:cloudbees-platform:integrations:scm-integration.adoc#permissions[GitHub App permission change requests]
+        '
+    - title: Added a conflict check for ServiceNow blackout windows
+      release: '1.57'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Check for conflicting blackout windows before creating a change request
+        in ServiceNow. If a blackout window exists, you can decide whether to proceed,
+        improving control and automation in ServiceNow workflows.
 
-        - title: Enabled hybrid plugin support for security tools
-          release: "1.60"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Enhance CloudBees core plugins for seamless integration with the {PRODUCT} implicit security orchestration workflow. These updates allow hybrid plugins to function both as plugins and as actions within {PRODUCT}. The following security tools are now available as hybrid plugins: Gosec, Trivy, Gitleaks, Grype, SonarQube, Blackduck, and Coverity.
+        '
+    - title: Introduced reusable workflows
+      release: '1.57'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Reuse workflows to reduce duplication, simplify maintenance, and promote
+        best practices. Call a reusable workflow within your workflow to streamline
+        automation.
 
-        - title: Introduced component environment inventory view
-          release: "1.60"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Gain visibility into where your component's artifacts are deployed with the new component environment inventory view. This feature allows users to see which environments a particular component's artifacts are deployed to, improving traceability and deployment insights.
+        '
+    - title: Enabled deployment with the new Chef Client action
+      release: '1.56'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Initiate deployments on the Chef Client application directly from
+        a {PRODUCT} workflow.
 
-        - title: Enhanced platform navigation and contextual awareness
-          release: "1.60"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Improved the user experience with significant updates to navigation and contextual awareness, including:
-            
-             - A newly designed sidebar navigation with icons.
-             - The ability to collapse navigation into an icon-only view.
-             - The removed sidebar navigation submenu items.
-             - New tabbed navigation within the context of a page (replaces sidebar navigation submenu items).
-             - The ability to navigate organizations and components using breadcrumbs.
+        '
+    - title: Introduced the ability to initiate a Tosca test scan from a workflow
+      release: '1.56'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Initiate a Tosca test scan directly from a {PRODUCT} workflow. The
+        scan results are available in the workflow logs and the *Test Insights* dashboard,
+        providing greater visibility and traceability.
 
-        - title: Updated feature management entity inheritance behavior
-          release: "1.60"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Maintain independent configurations in feature management. Previously, any feature management entity created in a parent organization was automatically inherited by sub-organizations. With this enhancement, inheritance has been removed, and feature management entities created in a parent organization are no longer available in a sub-organization.
+        '
+    - title: Trigger multiple workflows with the new dispatch action
+      release: '1.56'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Use the new `dispatch-workflows` action to trigger multiple workflows
+        in parallel or sequentially from a single main workflow, with status tracking
+        for each workflow. This feature simplifies multi-component releases by enabling
+        a single workflow to invoke deployment workflows across components.
 
-    - title: "February 2025"
-      anchor: "2025-02-14"
-      date: "2025-02-14"
-      content: ""
+        '
+    - title: Enabled use of sidecar services in jobs
+      release: '1.56'
+      badges:
+      - type: success
+        text: New feature
+      content: 'Specify sidecar services in your workflow jobs, such as a database,
+        memory cache, or other required services for building and testing code. Sidecar
+        services are automatically spun up before the job starts and torn down after
+        it completes. While the job is running, it can connect to these services and
+        execute scripts seamlessly.
 
-      entries:
-        - title: Introduced action to register build artifacts from a GitHub Actions workflow
-          release: "1.59"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Use this new action to instrument a GitHub Actions workflow and register a build artifact to {PRODUCT}, enabling a workflow to deploy and track the artifact version in the environment inventory.
+        '
+    - title: Added validation to prevent deletion of in-use custom properties
+      release: '1.57'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Delete custom properties with built-in checks to ensure safe removal.
+        If a property is in use, deletion is disabled, and the system alerts the user.
+        The property must be removed from all flag configurations before deletion
+        can proceed.
 
-        - title: Can now view component environment inventory
-          release: "1.59"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Visualize the deployed environments from a component's artifacts with the new component environment inventory view.
+        '
+    - title: Improved deployment traceability and environment inventory
+      release: '1.57'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Track built and deployed artifacts. A new environment inventory view
+        shows the latest versions of artifacts in an environment with links to the
+        jobs responsible for the deployment or build. The new artifact deployment
+        history view shows where a particular artifact version was deployed and which
+        version is currently active. Refer to xref:cloudbees-platform:configure:environments.adoc#view-deploy-artifacts-environment[View
+        artifacts deployed in an environment] for more information.
 
-        - title: Provided input parameters for manual approval jobs
-          release: "1.59"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Provide input parameters as part of a manual approval, making the values available for use in subsequent workflow jobs.
+        '
+    - title: Released new REST API documentation
+      release: '1.57'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Introduced new documentation for the CloudBees cloud-native platform
+        REST API. The documentation explains how to integrate with platform data using
+        standard HTTP methods and JSON-formatted responses, including tasks like creating
+        and managing feature flags, target groups, and custom properties. Detailed
+        examples and parameter tables guide you through authentication, retrieving
+        resource IDs, and handling errors. You can automate workflows, build custom
+        integrations, and enhance your {PRODUCT} experience with these APIs. Refer
+        to the xref:cloudbees-platform:api-references:index.adoc[platform API documentation]
+        for more information.
 
-        - title: Enhanced artifact feature with delete artifact versions
-          release: "1.58"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Delete registered artifact versions from the component artifact list view.
+        '
+    - title: Log in to ECR across multiple regions
+      release: '1.56'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Added support that enables users to log in to Amazon Elastic Container
+        Registry (ECR) across multiple regions, simplifying workflows that require
+        access to ECR repositories in different geographic locations.
 
-    - title: "January 2025"
-      anchor: "2025-01-20"
-      date: "2025-01-20"
-      content: ""
+        '
+    - title: Log in to an EKS cluster in a non-default region
+      release: '1.56'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: 'Added support that allows users to log in to an {EKS} (EKS) cluster
+        in a region other than the default. This enhancement provides greater flexibility
+        for managing clusters across multiple regions.
 
-      entries:
-        - title: Added Bitbucket Data Center metrics
-          release: "1.57"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            View all Bitbucket Data Center metrics directly on the *Component summary* and *Software delivery activity* dashboards for better visibility and tracking.
-
-        - title: Added a conflict check for ServiceNow blackout windows
-          release: "1.57"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Check for conflicting blackout windows before creating a change request in ServiceNow. If a blackout window exists, you can decide whether to proceed, improving control and automation in ServiceNow workflows.
-
-        - title: Introduced reusable workflows
-          release: "1.57"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Reuse workflows to reduce duplication, simplify maintenance, and promote best practices. Call a reusable workflow within your workflow to streamline automation.
-
-        - title: Enabled deployment with the new Chef Client action
-          release: "1.56"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Initiate deployments on the Chef Client application directly from a {PRODUCT} workflow.
-
-        - title: Introduced the ability to initiate a Tosca test scan from a workflow
-          release: "1.56"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Initiate a Tosca test scan directly from a {PRODUCT} workflow. The scan results are available in the workflow logs and the *Test Insights* dashboard, providing greater visibility and traceability.
-
-        - title: Trigger multiple workflows with the new dispatch action
-          release: "1.56"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Use the new `dispatch-workflows` action to trigger multiple workflows in parallel or sequentially from a single main workflow, with status tracking for each workflow. This feature simplifies multi-component releases by enabling a single workflow to invoke deployment workflows across components.
-
-        - title: Enabled use of sidecar services in jobs
-          release: "1.56"
-          badges:
-            - type: success
-              text: "New feature"
-          content: |
-            Specify sidecar services in your workflow jobs, such as a database, memory cache, or other required services for building and testing code. Sidecar services are automatically spun up before the job starts and torn down after it completes. While the job is running, it can connect to these services and execute scripts seamlessly.
-
-        - title: Added validation to prevent deletion of in-use custom properties
-          release: "1.57"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Delete custom properties with built-in checks to ensure safe removal. If a property is in use, deletion is disabled, and the system alerts the user. The property must be removed from all flag configurations before deletion can proceed.
-
-        - title: Improved deployment traceability and environment inventory
-          release: "1.57"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Track built and deployed artifacts. A new environment inventory view shows the latest versions of artifacts in an environment with links to the jobs responsible for the deployment or build. The new artifact deployment history view shows where a particular artifact version was deployed and which version is currently active. Refer to xref:cloudbees-platform:configure:environments.adoc#view-deploy-artifacts-environment[View artifacts deployed in an environment] for more information.
-
-        - title: Released new REST API documentation
-          release: "1.57"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Introduced new documentation for the CloudBees cloud-native platform REST API. The documentation explains how to integrate with platform data using standard HTTP methods and JSON-formatted responses, including tasks like creating and managing feature flags, target groups, and custom properties. Detailed examples and parameter tables guide you through authentication, retrieving resource IDs, and handling errors. You can automate workflows, build custom integrations, and enhance your {PRODUCT} experience with these APIs. Refer to the xref:cloudbees-platform:api-references:index.adoc[platform API documentation] for more information.
-
-        - title: Log in to ECR across multiple regions
-          release: "1.56"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Added support that enables users to log in to Amazon Elastic Container Registry (ECR) across multiple regions, simplifying workflows that require access to ECR repositories in different geographic locations.
-
-        - title: Log in to an EKS cluster in a non-default region
-          release: "1.56"
-          badges:
-            - type: info
-              text: "Feature enhancement"
-          content: |
-            Added support that allows users to log in to an {EKS} (EKS) cluster in a region other than the default. This enhancement provides greater flexibility for managing clusters across multiple regions.
+        '
