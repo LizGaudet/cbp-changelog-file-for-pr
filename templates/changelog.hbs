@@ -1,0 +1,76 @@
+:renderer: top-banner-page
+include::ROOT:partial$abbr.adoc[]
+:toc: false
+
+= Changelog
+
+[source,yaml,role=renderer]
+....
+---
+title: "{{title}}"
+description: "{{description}}"
+quickLinks:
+- title: Changelog archive
+  url: "/docs/cloudbees-platform-changelog/latest/archive"
+- title: Platform documentation
+  url: "/docs/cloudbees-platform"
+- title: Platform lexicon
+  url: "/lexicon/cloudbees-platform"
+bannerColour: primary
+pageType: product-release-notes-landing-page
+....
+
+{{#each changelogs as |changelog| }}
+[role="product-release-notes-version-block"]
+
+--
+[discrete]
+
+
+{{#if changelog.icon}}
+[#{{changelog.anchor}}]
+== icon:{{changelog.icon}}[role="mr-3"] {{changelog.date}}
+{{else}}
+[#{{changelog.anchor}}]
+== {{changelog.title}}
+{{/if}}
+
+{{changelog.content}}
+
+{{#each changelog.entries as |entry| }}
+{{#if entry.callout}}
+[role=callout, title={{entry.callout}}]
+____
+{{/if}}
+{{#if entry.icon}}
+*icon:{{entry.icon}}[role="mr-3"] {{entry.title}}*
+
+["small"]#(_Release ID: {{entry.release}}_)#
+{{#each entry.badges as |badge|}}[.badge .badge-pill .ml-3 .badge-{{badge.type}}]#{{badge.text}}# {{/each}}
+{{else}}
+*{{entry.title}}*
+
+["small"]#(_Release ID: {{entry.release}}_)#
+{{#each entry.badges as |badge|}}[.badge .badge-pill .ml-3 .badge-{{badge.type}}]#{{badge.text}}# {{/each}}
+{{/if}}
+
+{{{entry.content}}}
+
+{{#if entry.references}}
+*References*:
+
+{{#each entry.references as |reference|}}* {{reference}} 
+{{/each}}
+
+{{/if}}
+{{#if entry.callout}}
+____
+
+{{/if}}
+
+'''
+{{/each}}
+
+--
+
+{{/each}}

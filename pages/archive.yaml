@@ -1,0 +1,772 @@
+---
+template: ../templates/changelog.hbs
+schema: ../templates/changelog.cue
+tmp: true
+data:
+  title: "CloudBees changelog archive"
+  description: "The CloudBees changelog archive lists previous updates to the platform."
+
+  changelogs:
+    - title: "December 2024"
+      anchor: "2024-12-03"
+      date: "2024-12-03"
+      content: ""
+
+      entries:
+        - title: Track actions performed on feature configurations
+          release: "1.55"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Added audit history for detailed tracking of actions performed on feature configurations, including feature flags, target groups, and custom properties. This feature offers a comprehensive insight into creating, modifying, and removing these configurations, enabling improved traceability and accountability for your feature management processes.
+          references:
+            - xref:cloudbees-platform:feature-management:audit-history.adoc[Audit history]
+        - title: Added build artifact version traceability
+          release: "1.55"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            The following actions have been updated to report artifact or image names, along with version and tag data, to the workflow run for enhanced artifact traceability:
+
+            * xref:cloudbees-platform:deploy-tools:kaniko.adoc[Kaniko]
+            * helm-push
+            * jfrog-artifactory-promote-image
+            * ecr-promote-image
+            * xref:cloudbees-platform:deploy-tools:crane.adoc[Crane]
+            * s3-upload-object
+            * jfrog-artifactory-upload-file
+
+            The workflow *Run details* feature has been enhanced to display artifact versions built and published by the run. Additionally, a new *Artifact* view has been added to the component entity, providing a comprehensive history of artifacts built and published by workflow runs.
+          references:
+            - xref:cloudbees-platform:workflows:artifacts.adoc[Artifacts]
+            - xref:cloudbees-platform:workflows:build-artifacts.adoc[Build artifacts]
+        - title: Create and manage ServiceNow change requests within a workflow
+          release: "1.55"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Leverage this new ServiceNow action to perform key operations on ServiceNow change requests: `create`, `update`, `get status`, and `close`. This feature helps to maintain compliance by tightly integrating ServiceNow change requests with your associated workflows.
+        - title: Introduced Configuration-as-Code (CasC) for feature management
+          release: "1.54"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            With Configuration as Code (CasC) for feature management, store your feature flag configuration data as code and manage it using GitOps practices. Feature management entities, including feature flags, flag configurations, and target groups, are mapped to YAML files and synchronized with your connected GitHub repository.
+          references:
+            - xref:cloudbees-platform:feature-management:configuration-as-code.adoc[Configuration as Code]
+        - title: New manual approval option
+          release: "1.54"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Manual approval requests can now be added to workflow definitions. When encountered during a workflow run, the approval pauses the run to wait for a response from individuals or teams authorized to perform workflow approvals. Based on the response, the run will continue if approved or terminate if rejected.
+          references:
+            - xref:cloudbees-platform:custom-jobs:manual-approval.adoc[Manual approval custom job]
+            - xref:cloudbees-platform:workflows:manage-workflows.adoc[Manage workflows]
+        - title: Enhanced feature flag security
+          release: "1.55"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Introduced a new layer of security for creating and modifying feature flags with *Secret mode*. This enhancement ensures that only authorized users can create or update feature flags.
+          references:
+            - xref:cloudbees-platform:feature-management:secret-mode.adoc[Enabling secret mode]
+
+    - title: "November 2024"
+      anchor: "2024-11-04"
+      date: "2024-11-04"
+      content: ""
+
+      entries:
+        - title: Introduced the `Heroku deployment` action
+          release: "1.53"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            {PRODUCT} users can now initiate deployments to Heroku applications directly from a {PRODUCT} workflow.
+        - title: Introduced using sample iOS code to evaluate feature flags
+          release: "1.53"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Install feature flags using iOS sample code through a compatible package manager. This new feature simplifies the evaluation process, allowing for quicker verification of feature management functionality and expected performance within iOS applications.
+        - title: New custom role creation to tailor your access control
+          release: "1.53"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Create custom roles to tailor access control with greater precision for your team. This powerful new feature enhances security by allowing you to assign each user the exact access they need. While predefined roles remain available, you can now achieve even more control by leveraging custom roles.
+        - title: Added scheduling for automatic workflow execution
+          release: "1.52"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Added the ability to schedule workflows to start automatically utilizing the new schedule trigger. Use the Composer to configure this trigger to automatically start the workflow based on defined schedules.
+        - title: Introduced `Ansible deployment` action
+          release: "1.52"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Users can now perform deployments in the Ansible application directly through the {PRODUCT} workflow.
+        - title: New `AWS CodeDeploy deployment` action
+          release: "1.52"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Added the ability to perform deployments in the *AWS CodeDeploy* application directly through the {PRODUCT} workflow.
+        - title: New `AWS Elastic Beanstalk deployment` action
+          release: "1.52"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Added the ability to perform deployments in the *AWS Elastic Beanstalk* application directly through the {PRODUCT} workflow.
+
+        - title: Enable Playwright tool support in test actions
+          release: "1.53"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Leverage the Playwright testing tool in the *Publish test results* action to seamlessly integrate your test results into the platform's **Test insights** dashboard. With this support, you can now view and analyze Playwright test results alongside other testing data for a unified view of test performance.
+        - title: Enabled triggering workflows upon Git tag creation
+          release: "1.52"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Added the ability to trigger workflows when tags are pushed in your repository.
+        - title: Improved the onboarding experience with on-the-fly repository creation
+          release: "1.52"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Users can now create repositories on-the-fly when adding the first component in CI/CD. If no suitable repository exists, a sample repository with an application code template is automatically generated within the connected SCM organization, supporting a representative workflow in the next onboarding step.
+        - title: Enabled webhook notifications for updates
+          release: "1.52"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Receive notifications directly through webhooks, enabling updates to be sent to a specified URL.
+        - title: Enabled direct XML import for streamlined SAML setup
+          release: "1.52"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Import an XML file directly from your selected IdP to quickly set up a SAML connection, providing a streamlined alternative to manual XML entry methods.
+
+        - title: Fixed notification issue for flag configuration updates
+          release: "1.52"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Resolved an issue that prevented notifications from triggering when flag configuration statuses changed within an environment. Notifications are now sent as expected for all flag configuration updates.
+
+    - title: "October 2024"
+      anchor: "2024-10-07"
+      date: "2024-10-07"
+      content: ""
+
+      entries:
+        - title: Added support for notifications in Microsoft Teams
+          release: "1.51"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Receive updates directly in your Microsoft Teams channels with new support for Teams notifications.
+        - title: Edit a secret without re-entering its value
+          release: "1.51"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Edit existing secrets, such as updating descriptions, without needing to re-enter the secret value. This allows secret owners to clarify their intent without the risk of accidentally changing the secret value and disrupting workflows that rely on it.
+
+    - title: "September 2024"
+      anchor: "2024-09-06"
+      date: "2024-09-06"
+      content: ""
+
+      entries:
+        - title: Enabled granular notifications for feature management
+          release: "1.50"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Added support for creating granular notifications tailored to feature management. Users can now specify environments to receive targeted messages.
+        - title: Introduced API-based workflow triggers
+          release: "1.50"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Users can now leverage the platform's personal access tokens to run workflows with a manual trigger using an API call, in addition to the platform UI.
+          references:
+            - xref:cloudbees-platform:workflows:remote-trigger.adoc[Trigger a workflow remotely].
+        - title: Define input parameters for manual triggers
+          release: "1.49"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Define input parameters of type string, number, Boolean, or choice in manual workflow triggers. Provide runtime values for these parameters when triggering workflows manually or via API calls.
+        - title: Enhanced run details report with test case drill-down
+          release: "1.48"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Added test suites to *Run details* so users can directly drill down into the status and logs of related test cases.
+        - title: Enhanced dashboard with Jest support
+          release: "1.50"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Added support for the Jest testing tool in the CloudBees action: `Publish test results`. Users can now view Jest test results directly in the platform’s test insights dashboard.
+        - title: Invite users with preconfigured, system-generated permissions
+          release: "1.49"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: Invite users with a new streamlined process. Add the user's email and associate them with a system-generated team that automatically grants permissions. They can start working on the platform with you immediately after accepting the invite, without needing you to assign specific permissions.
+        - title: Fixed BitBucket branch push event trigger issue
+          release: "1.50"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: Fixed an issue that prevented BitBucket branch push events from properly triggering workflows.
+
+    - title: "August 2024"
+      anchor: "2024-08-01"
+      date: "2024-08-01"
+      content: ""
+
+      entries:
+        - title: Enabled SAML support for platform users
+          release: "1.46"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Platform admins can now create and manage SAML connections for tenant SSO via a new 'Authentication' landing page.
+          references:
+            - xref:cloudbees-platform:secure:single-sign-on.adoc[SAML single sign-on (SSO)]
+
+        - title: Resolved impressions chart time issue
+          release: "1.46"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Corrected the feature management impressions chart to properly display the time on the x-axis.
+          references:
+            - xref:cloudbees-platform:feature-management:flag-impressions.adoc[Flag impressions]
+
+        - title: Fixed role cloning restriction
+          release: "1.46"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Resolved a bug that prevented user roles from cloning feature flag configurations.
+
+        - title: Fixed flag list order
+          release: "1.46"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Resolved an issue where the flags overview list was reordered every time the page was rendered.
+
+        - title: Resolved user role flag access issue
+          release: "1.46"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Resolved an issue that prevented user roles from accessing the 'Create Flag' option.
+
+    - title: "July 2024"
+      anchor: "2024-07-01"
+      date: "2024-07-01"
+      content: ""
+
+      entries:
+        - title: Introduced test insights analytics dashboard
+          release: "1.45"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            The new test/QA insights in analytics are designed to help you dive deep into your QA automation test metrics.
+          references:
+            - xref:cloudbees-platform:analytics:test-insights.adoc[Test insights]
+
+        - title: Launched workflow run evidence view and action to publish evidence
+          release: "1.45"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Custom evidence items are now displayed on the workflow run details view, and they can be viewed, copied, and downloaded in raw form.
+          references:
+            - xref:cloudbees-platform:workflows:runs.adoc[Workflow runs]
+            - xref:cloudbees-platform:evidence:publish-evidence-item.adoc[Publish evidence items]
+
+        - title: Introduced guided experience for onboarding
+          release: "1.45"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Sample workflow onboarding now includes a new guided experience for creating, committing, and running a workflow.
+          references:
+            - xref:cloudbees-platform:onboarding:onboard.adoc[Onboard]
+
+        - title: Added feature management C/C++ client-side SDK
+          release: "1.45"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Added a new C/C++ client SDK to expand the applications of feature management to more code languages.
+          references:
+            - xref:cloudbees-platform:sdk-reference:c-plus-plus-client.adoc[C++ Client SDK reference]
+            - xref:cloudbees-platform:sdk-reference:c-client.adoc[C (client-side) SDK reference]
+
+        - title: Added feature management example application for .NET
+          release: "1.45"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            A new example .NET application is now available to help users get started with feature flags. 
+            Just clone a repository and paste in an SDK key from the platform's install instruction page.
+          references:
+            - xref:cloudbees-platform:example-apps:index.adoc[Example applications with feature flags]
+
+        - title: Introduced feature flag activity status as part of the flag lifecycle
+          release: "1.45"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Introduced statuses to typify the flag lifecycle: setup, active, stale, inactive, and permanent. 
+            Each status is defined based on impression data, except any long-lived flag you designate as permanent, 
+            where impressions data is not counted. 
+            Change a flag status in the flag settings.
+
+        - title: Enabled feature management custom property definition in both code and the UI
+          release: "1.45"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Can now add custom properties in the UI, not just define them in code. 
+            Use in flag configurations and target group definitions.
+
+        - title: Launched feature management flag cleanup candidates pre-filter
+          release: "1.45"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Filter feature flags for cleanup candidates (flags with a stale or inactive activity status) in order to identify technical debt.
+
+        - title: Introduced manually triggered workflow option
+          release: "1.44"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Workflows can now be started manually in addition to the existing push and pull request triggers. 
+            The visual composer UI has been updated for this feature, and the DSL syntax has been updated to support `workflow_dispatch` to manually trigger a run.
+          references:
+            - xref:cloudbees-platform:workflows:manage-workflows.adoc#create-trigger[Manage workflow triggers]
+            - xref:cloudbees-platform:dsl-syntax:on.adoc[Manual trigger DSL syntax]
+
+        - title: Expanded support for more code languages in the sample workflow
+          release: "1.45"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            You can now select the sample workflow to be any of the following supported languages: C#, Java, JavaScript, Python, and Golang.
+          references:
+            - xref:cloudbees-platform:onboarding:onboard.adoc[Onboard]
+
+        - title: Added flag activity status to feature flag delete modal
+          release: "1.45"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            The flag activity status informs users of the flag life cycle across all environments, helping them make an informed deletion choice.
+
+        - title: Improved error reporting on the component runs page
+          release: "1.45"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Detailed error messages are now provided when there is an issue that may prevent a workflow run.
+          references:
+            - xref:cloudbees-platform:workflows:runs.adoc[Runs]
+
+        - title: Improved navigation between each feature flag configuration and its environment
+          release: "1.45"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Now you can select links on the environment list to directly display all feature flags associated with a specific environment, 
+            and in the feature flag list to directly display each flag configuration for a specific environment.
+
+        - title: Expanded the flag filter to include activity status
+          release: "1.45"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Now you can display only flag configurations in an environment that match a specified activity status.
+
+        - title: Added feature management SDKs for React Native, Android TV, Chromecast, Fire TV, and Tizen
+          release: "1.44"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Added five new SDKs to expand the applicability of feature management to more code languages. 
+            To use feature flags for your application, install the appropriate SDK.
+          references:
+            - xref:cloudbees-platform:install-sdk:index.adoc[Installing SDKs]
+
+        - title: Fixed feature management impressions bug
+          release: "1.45"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Fixed an issue where incorrect flag configuration impressions were sometimes displayed.
+          references:
+            - xref:cloudbees-platform:feature-management:flag-impressions.adoc[Flag impressions]
+
+    - title: "June 2024"
+      anchor: "2024-06-01"
+      date: "2024-06-01"
+      content: ""
+
+      entries:
+        - title: Introduced new navigation and context switcher
+          release: "1.43"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use the context switcher on the left navigation menu to list, search, and navigate your hierarchy of organizations and components.
+          references:
+            - xref:cloudbees-platform:organizations-components:components.adoc[Components]
+            - xref:cloudbees-platform:organizations-components:organizations.adoc[Organizations and sub-organizations]
+
+        - title: Launched feature management example applications for Angular, React, Spring Boot, Gin, and Django.
+          release: "1.42"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Introduced 5 example applications to help users get started with feature flags. 
+            Just clone a repository and paste in an SDK key from the platform's install instruction page.
+          references:
+            - xref:cloudbees-platform:example-apps:index.adoc[Example applications with feature flags]
+
+        - title: Introduced impressions chart to visualize feature flag evaluations
+          release: "1.42"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Can now visualize flag evaluations for each configuration to see how a flag's variations are being used over time.
+          references:
+            - xref:cloudbees-platform:feature-management:flag-impressions.adoc[Flag impressions]
+
+        - title: Fixed security insights dashboard bug
+          release: "1.43"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Fixed a bug where sometimes the data on drill-down charts did not match main chart data.
+          references:
+            - xref:cloudbees-platform:analytics:security-insights.adoc[Security insights]
+
+        - title: Fixed feature management configuration bugs
+          release: "1.43"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Fixed bugs: On occasion, number flags and scheduled releases could not be configured.
+          references:
+            - xref:cloudbees-platform:feature-management:configure-feature-flags.adoc[Configure feature flags]
+            - xref:cloudbees-platform:feature-management:configure-feature-flags#scheduled[Scheduled releases]
+
+        - title: Fixed DORA metrics minor bugs
+          release: "1.42"
+          badges:
+            - type: warning
+              text: "Resolved issues"
+          content: |
+            Fixed bugs, where on occasion no data was shown or a count was not matching.
+          references:
+            - xref:cloudbees-platform:analytics:dora-metrics.adoc[DORA metrics]
+
+    - title: "May 2024"
+      anchor: "2024-05-01"
+      date: "2024-05-01"
+      content: ""
+
+      entries:
+        - title: Launched pull requests as a trigger option
+          release: "1.41"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Runs can now be triggered by a pull request, in addition to a push commit.
+          references:
+            - xref:cloudbees-platform:workflows:manage-workflows.adoc[Manage workflows]
+
+        - title: Published lambda create CloudBees action
+          release: "1.41"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use this action to create or update a function in the AWS Lambda serverless architecture. 
+            Run code in AWS Lambda without provisioning or managing servers.
+          references:
+            - xref:cloudbees-platform:lambda-tools:lambda-create-function.adoc[Create or update an AWS Lambda function]
+            - link:https://github.com/cloudbees-io/lambda-create-function[lambda-create-function in GitHub]
+
+        - title: Published lambda invoke CloudBees action
+          release: "1.41"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use this action to invoke a function in AWS Lambda serverless architecture. 
+            Run code in AWS Lambda without provisioning or managing servers.
+          references:
+            - xref:cloudbees-platform:lambda-tools:lambda-invoke-function.adoc[Invoke an AWS Lambda function]
+            - link:https://github.com/cloudbees-io/lambda-invoke-function[lambda-invoke-function in GitHub]
+
+        - title: Published SSH CloudBees action
+          release: "1.41"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use this action to connect to a remote server and execute commands via the Secure Shell Protocol (SSH).
+          references:
+            - xref:cloudbees-platform:ssh:ssh-deploy-actions.adoc[Execute commands on a remote server through SSH]
+            - link:https://github.com/cloudbees-io/ssh-deploy-actions[ssh-deploy-actions in GitHub]
+
+        - title: Enhanced filtering, time calculations, metrics comparisons, and dashboard customization in Analytics
+          release: "1.41"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            * Filtering: the last 7 days, 30 days, 90 days and custom time ranges are added to existing options.
+            * Dynamic time calculations: The reports now compute the data based on the user's preferred timezone.
+            * Metrics comparisons: The user can now compare a metric across organizations and components for many charts.
+            * Dashboard customization: The user can now show/hide charts and tables according to their needs.
+          references:
+            - xref:cloudbees-platform:analytics:intro.adoc[Analytics]
+
+        - title: Updated SonarQube bundled CloudBees action language support
+          release: "1.41"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            The SonarQube bundled action now supports Ruby and .NET, in addition to Go, Java, JavaScript, PHP, and Python programming languages.
+          references:
+            - xref:cloudbees-platform:sast-scanners:sonarqube-bundled-sast-scan-code.adoc[Scan with SonarQube bundled]
+            - link:https://github.com/cloudbees-io/sonarqube-bundled-sast-scan-code[sonarqube-bundled-sast-scan-code in GitHub]
+
+    - title: "April 2024"
+      anchor: "2024-04-01"
+      date: "2024-04-01"
+      content: ""
+
+      entries:
+        - title: Introduced Gosec CloudBees action
+          release: "1.39"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use this action to perform static application security testing (SAST) on Go repositories with the open-source Golang Security Checker (Gosec).
+            Gosec inspects Go code for security problems by scanning the AST and SSA code representation.
+          references:
+            - xref:cloudbees-platform:sast-scanners:gosec-sast-scan-code.adoc[Scan Go code with Gosec]
+            - link:https://github.com/cloudbees-io/gosec-sast-scan-code[gosec-sast-scan-code in GitHub]
+
+        - title: Introduced Aquasec CloudBees action
+          release: "1.39"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use this action to scan container images with the Aquasec scanner.
+            Detect and fix security threats to your container-based cloud applications.
+          references:
+            - xref:cloudbees-platform:container-scanners:aquasec-scan-container.adoc[Scan with Aquasec]
+            - link:https://github.com/cloudbees-io/aquasec-scan-container[aquasec-scan-container in GitHub]
+
+        - title: Introduced TeamCity CloudBees action
+          release: "1.39"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use this action to run a TeamCity project and fetch the run information as output.
+            TeamCity is a JetBrains CI/CD tool.
+          references:
+            - xref:cloudbees-platform:build-tools:teamcity-run-project.adoc[Run a TeamCity project]
+            - link:https://github.com/cloudbees-io/teamcity-run-project[teamcity-run-project in GitHub]
+
+        - title: Reduced execution delay in triggered workflow runs
+          release: "1.39"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Reduced the execution delay and removed requirement for manual browser refresh.
+            Performance made sustainable for high levels of traffic.
+
+        - title: Added scheduled releases to feature management
+          release: "1.39"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Can now schedule a Boolean flag configuration to be enabled for a user group at a given date and time.
+          references:
+            - xref:cloudbees-platform:feature-management:configure-feature-flags.adoc#scheduled[Configure feature flags]
+
+    - title: "March 2024"
+      anchor: "2024-03-01"
+      date: "2024-03-01"
+      content: ""
+
+      entries:
+        - title: Launched feature management functionality
+          release: "1.37"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Added feature management to the {PRODUCT}, which enables teams to progressively toggle features on and off for certain segments of users.
+          references:
+            - xref:cloudbees-platform:ROOT:feature-management.adoc[Feature management]
+
+        - title: Introduced AWS CodePipeline CloudBees action
+          release: "1.37"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use this action to trigger an AWS CodePipeline, a fully managed continuous delivery service, and fetch the run information as output.
+          references:
+            - xref:cloudbees-platform:build-tools:aws-codepipeline-invoke-actions.adoc[Run an AWS CodePipeline]
+            - link:https://github.com/cloudbees-io/aws-codepipeline-run-pipeline[aws-codepipeline-run-pipeline in GitHub]
+
+    - title: "February 2024"
+      anchor: "2024-02-01"
+      date: "2024-02-01"
+      content: ""
+
+      entries:
+        - title: Introduced Trivy CloudBees action
+          release: "1.35"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            Use this action to scan container images with the Trivy scanner, to identify and fix security vulnerabilities.
+          references:
+            - xref:cloudbees-platform:container-scanners:trivy-scan-container.adoc[Scan with Trivy]
+            - link:https://github.com/cloudbees-io/trivy-scan-container[trivy-scan-container in GitHub]
+
+        - title: Added meaningful alerts for the GitHub App
+          release: "1.35"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            Expanded UI alerts to include updated, requested, and successful connection, and hid pending alerts.
+          references:
+            - xref:cloudbees-platform:integrations:integrations.adoc[Integrations]
+
+    - title: "January 2024"
+      anchor: "2024-01-01"
+      date: "2024-01-01"
+      content: ""
+
+      entries:
+        - title: Added ability to set timezone and time clock preference to the user profile
+          release: "1.33"
+          badges:
+            - type: success
+              text: "New feature"
+          content: |
+            * Can now either manually set your timezone or update it automatically.
+            * Can now switch between a 12 and 24 hour clock for time displays.
+          references:
+            - xref:cloudbees-platform:teams-users:users.adoc#_access_and_update_your_user_profile[User profile]
+
+        - title: Set up guardrails to protect against misuse of the platform
+          release: "1.33"
+          badges:
+            - type: info
+              text: "Feature enhancement"
+          content: |
+            * Put in place proactive abuse detection mechanisms in response to a crypto-mining incident.
+            * Removed the requirement to validate an account with a credit card prior to running your first workflow.
+          references:
+            - link:https://www.cloudbees.com/blog/breaking-the-chains-blocking-cryptocurrency-mining-on-cloudbees-platform[Breaking the Chains]
+
+    - title: "November 2023"
+      anchor: "2023-11-01"
+      date: "2023-11-01"
+      content: ""
+
+      entries:
+        - title: Introduced public release of {PRODUCT}
+          release: "1.01"
+          badges:
+            - type: success
+              text: "Release"
+          content: |
+            “The way to begin is to begin” - Eleanor Roosevelt
