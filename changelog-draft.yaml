@@ -10,21 +10,13 @@ data:
     date: '2025-07-01'
     content: ''
     entries:
-    - title: blah blah
-      release: '1.70'
-      badges:
-      - type: success
-        text: feature enhancement
-      content: "Attach one or more custom text labels to artifact versions \n"
-      version: '1.70'
     - title: more blah blah
       release: '1.70'
       badges:
       - type: success
         text: New feature
       content: 'Coordinate the release of multiple components using the Application
-        release model.
-        '
+        release model. '
       version: '1.70'
     - title: even more blah blah
       release: '1.70'
@@ -32,8 +24,14 @@ data:
       - type: success
         text: New feature
       content: 'Coordinate the release of multiple components using the Application
-        release model.
-        '
+        release model. '
+      version: '1.70'
+    - title: blah blah
+      release: '1.70'
+      badges:
+      - type: success
+        text: feature enhancement
+      content: "Attach one or more custom text labels to artifact versions \n"
       version: '1.70'
     - title: further blah blah
       release: '1.70'
@@ -88,3 +86,30 @@ data:
       - type: info
         text: Feature enhancement
       content: Attach one or more custom text.
+  - title: March 2024
+    anchor: '2024-03-22'
+    date: '2024-03-22'
+    content: ''
+    entries:
+    - title: Input parameters in manual workflow triggers
+      release: '1.49'
+      badges:
+      - type: success
+        text: New feature
+      content: Now you can define input parameters of type string, number, boolear
+        or choice in manual triggers for workflows. Users triggering the workflow
+        manually or using an API call will be able to provide runtime values to the
+        defined input parameters.
+      version: '1.49'
+    - title: Inviting users just got easier!
+      release: '1.49'
+      badges:
+      - type: info
+        text: Feature enhancement
+      content: Inviting a user just became easier. All you need to do when inviting
+        a new user is add their email address and associate them to one of the new
+        system generated teams available to you which will grant them a set of permissions
+        as soon as they sign-up. They can instantly start working with you on the
+        platform without needing to give them specific permissions after they accept
+        an invite.
+      version: '1.49'
