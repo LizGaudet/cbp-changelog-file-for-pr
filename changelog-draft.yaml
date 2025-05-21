@@ -15,21 +15,21 @@ data:
       badges:
       - type: success
         text: New feature
-      content: 'Attach one or more custom text.
+      content: 'Attach one or more custom text.'
 
     - title: bAdd and filter artifact versions using custom labels
       release: '1.64'
       badges:
       - type: success
         text: New feature
-      content: 'Attach one or more custom text.
+      content: 'Attach one or more custom text.'
 
     - title: cAdd and filter artifact versions using custom labels
       release: '1.64'
       badges:
       - type: info
         text: Feature enhancement
-      content: 'Attach one or more custom text.
+      content: 'Attach one or more custom text.'
 
   - title: April 2025
     anchor: '2025-04-09'
@@ -41,19 +41,19 @@ data:
       badges:
       - type: success
         text: New feature
-      content: 'Attach one or more custom text.
+      content: 'Attach one or more custom text.'
 
     - title: bAdd and filter artift versions using custom labels
       release: '1.63'
       badges:
       - type: success
         text: New feature
-      content: 'Attach one or more custom text.
+      content: 'Attach one or more custom text.'
 
     - title: cAdd and filter artifact versions usng custom labels
       release: '1.63'
       badges:
       - type: info
         text: Feature enhancement
-      content: 'Attach one or more custom text.
+      content: 'Attach one or more custom text.'
 
